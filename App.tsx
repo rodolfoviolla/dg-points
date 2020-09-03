@@ -1,21 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { AppLoading } from 'expo';
+import { useFonts } from 'expo-font';
+
+import Routes from './src/routes';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  let [fontsLoaded] = useFonts({
+    'GT-Walsheim-Pro-Regular': require('./src/assets/fonts/GT-Walsheim-Pro-Regular.otf'),
+    'GT-Walsheim-Pro-Bold': require('./src/assets/fonts/GT-Walsheim-Pro-Bold.otf'),
+  });
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <>
+        <Routes />
+        <StatusBar style="light" />
+      </>
+    );
+  }
+}
