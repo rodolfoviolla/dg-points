@@ -4,18 +4,20 @@ import { RectButton } from 'react-native-gesture-handler';
 export const Container = styled.View`
   justify-content: center;
   background: #E5E5E5;
+  height: 100%;
 `;
 
 export const Header = styled.View`
-  height: auto;
+  width: 100%;
+  height: 90px;
   background: #A30010;
   align-items: center;
-  justify-content: center;
-  padding: 60px 0 20px 0;
 `;
 
 export const HeaderLogo = styled.Image`
-  
+  width: 98px;
+  height: 34px;
+  margin: 43px 0 13px;
 `;
 
 export const Welcome = styled.View`
@@ -23,14 +25,15 @@ export const Welcome = styled.View`
 `;
 
 export const WelcomeTitle = styled.Text`
-  font-family: Roboto;
-  font-weight: bold;
+  font-family: 'GT-Walsheim-Pro-Medium';
+  line-height: 16px;
   font-size: 14px;
 `;
 
 export const WelcomeText = styled.Text`
-  font-family: Roboto;
+  font-family: 'GT-Walsheim-Pro-Regular';
   font-size: 14px;
+  line-height: 16px;
 `;
 
 export const Content = styled.View`
@@ -59,30 +62,27 @@ export const CardMainContent = styled.View`
 export const CardMainFrame = styled.Text`
   background: rgba(255, 71, 90, 0.16);
   border-radius: 2px;
-  padding: 4px 8px;
+  padding: 4px 8px 2px;
   text-align: center;
   width: 62px;
 
-  font-family: Roboto;
+  font-family: 'GT-Walsheim-Pro-Bold';
   font-size: 10px;
-  font-weight: bold;
+  line-height: 14px;
   color: #EB0017;
-  
-  align-items: center;
-  justify-content: center;
 `;
 
 export const CardMainTitle = styled.Text`
-  font-family: Roboto;
-  font-weight: bold;
+  font-family: 'GT-Walsheim-Pro-Bold';
   font-size: 18px;
+  line-height: 22px;
   color: #FF475A;
 
-  padding: 10px 0;
+  padding: 10px 0 8px;
 `;
 
 export const CardMainText = styled.Text`
-  font-family: Roboto;
+  font-family: 'GT-Walsheim-Pro-Regular';
   color: #494B5B;
   font-size: 14px;
   line-height: 22px;
@@ -97,11 +97,12 @@ export const CardMainButton = styled(RectButton)`
   justify-content: center;
 
   margin: 8px 0 0;
+  padding: 4px 0 2px;
 `;
 
 export const CardMainButtonText = styled.Text`
-  font-family: Roboto;
+  font-family: 'GT-Walsheim-Pro-Bold';
   color: #FFFFFF;
-  font-weight: bold;
   font-size: 16px;
+  line-height: 16px;
 `;

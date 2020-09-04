@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import imgLogo from '../../assets/images/logo.png';
+import imgLogo from '../../assets/images/logo2.png';
 import imgCardMain from '../../assets/images/card-pontos.png';
 
 import {
@@ -23,6 +24,12 @@ import {
 } from './styles';
 
 const Home = () => {
+  const { navigate } = useNavigation();
+
+  const handleClickButton = useCallback(() => {
+    navigate('Points');
+  }, []);
+
   return (
     <Container>
       <ScrollView>
@@ -44,7 +51,7 @@ const Home = () => {
               <CardMainText>
                 Ganhe pontos a cada compra no aplicativo da Drogasil e troque por qualquer produto
               </CardMainText>
-              <CardMainButton>
+              <CardMainButton onPress={handleClickButton}>
                 <CardMainButtonText>Quero Participar</CardMainButtonText>
               </CardMainButton>
             </CardMainContent>
