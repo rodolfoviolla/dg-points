@@ -105,14 +105,3 @@ export const CardMainButtonText = styled.Text`
   font-weight: bold;
   font-size: 16px;
 `;
-
-export const Card = styled.View`
-  padding: 0 16px 24px;
-  width: 100%;
-`;
-
-export const CardImage = styled.Image`
-  width: 100%;
-  resize-mode: stretch;
-  border-radius: 12px;
-`;

@@ -1,10 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { ScrollView } from 'react-native';
 
 import imgLogo from '../../assets/images/logo.png';
 import imgCardMain from '../../assets/images/card-pontos.png';
-import imgCardComprar from '../../assets/images/card-comprar.png';
-import imgCardOfertas from '../../assets/images/card-ofertas.png';
 
 import {
   Container,
@@ -21,8 +19,6 @@ import {
   CardMainTitle,
   CardMainText,
   CardMainButton,
-  Card,
-  CardImage,
   CardMainButtonText,
 } from './styles';
 
@@ -53,14 +49,6 @@ const Home = () => {
               </CardMainButton>
             </CardMainContent>
           </CardMain>
-
-          <Card>
-            <CardImage source={imgCardComprar} />
-          </Card>
-
-          <Card>
-            <CardImage source={imgCardOfertas} />
-          </Card>
         </Content>
       </ScrollView>
     </Container>
