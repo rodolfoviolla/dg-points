@@ -5,23 +5,25 @@ import Input from '../../components/Input';
 
 import imgLavitan from '../../assets/images/Lavitan.png';
 import imgHypera from '../../assets/images/Hypera.png';
+import imgOurBrands from '../../assets/images/Our-Brands.png';
+import imgSales from '../../assets/images/Sales.png';
+import imgMedicines from '../../assets/images/Medicines.png';
+import imgHealth from '../../assets/images/Health.png';
+import imgSuplements from '../../assets/images/Suplements.png';
 
 import SvgSearch from '../../assets/icons/Search.svg';
-import SvgOurBrands from '../../assets/images/Our-Brands.svg';
-import SvgSales from '../../assets/images/Sales.svg';
-import SvgMedicines from '../../assets/images/Medicines.svg';
-import SvgHealth from '../../assets/images/Health.svg';
-import SvgSuplements from '../../assets/images/Suplements.svg';
 
 import {
   Container,
   Content,
+  ScrollView,
   CategoriesContainer,
   CategoriesHeader,
   CategoriesTitle,
   CategoriesMore,
   CategoriesList,
   CategoryItem,
+  CategoryImage,
   CategoryText,
   ProductsContainer,
   ProductsHeader,
@@ -49,75 +51,77 @@ const Products = () => {
 
       <Content>
 
-        <CategoriesContainer>
+        <ScrollView>
 
-          <CategoriesHeader>
-            <CategoriesTitle>Categorias</CategoriesTitle>
-            <CategoriesMore>Ver mais</CategoriesMore>
-          </CategoriesHeader>
+          <CategoriesContainer>
+            <CategoriesHeader>
+              <CategoriesTitle>Categorias</CategoriesTitle>
+              <CategoriesMore>Ver mais</CategoriesMore>
+            </CategoriesHeader>
 
-          <CategoriesList>
-            <CategoryItem>
-              <SvgOurBrands fill="#a30010" />
-              <CategoryText>Nossas Marcas</CategoryText>
-            </CategoryItem>
+            <CategoriesList>
+              <CategoryItem>
+                <CategoryImage source={imgOurBrands} />
+                <CategoryText>Nossas Marcas</CategoryText>
+              </CategoryItem>
 
-            <CategoryItem>
-              <SvgSales fill="#a30010" />
-              <CategoryText>Promoções do mês</CategoryText>
-            </CategoryItem>
+              <CategoryItem>
+                <CategoryImage source={imgSales} />
+                <CategoryText>Promoções do mês</CategoryText>
+              </CategoryItem>
 
-            <CategoryItem>
-              <SvgMedicines fill="#a30010" />
-              <CategoryText>Medicamentos</CategoryText>
-            </CategoryItem>
+              <CategoryItem>
+                <CategoryImage source={imgMedicines} />
+                <CategoryText>Medicamentos</CategoryText>
+              </CategoryItem>
 
-            <CategoryItem>
-              <SvgHealth fill="#a30010" />
-              <CategoryText>Saúde</CategoryText>
-            </CategoryItem>
+              <CategoryItem>
+                <CategoryImage source={imgHealth} />
+                <CategoryText>Saúde</CategoryText>
+              </CategoryItem>
 
-            <CategoryItem>
-              <SvgSuplements fill="#a30010" />
-              <CategoryText>Vitaminas e Suplementos</CategoryText>
-            </CategoryItem>
+              <CategoryItem>
+                <CategoryImage source={imgSuplements} />
+                <CategoryText>Vitaminas e Suplementos</CategoryText>
+              </CategoryItem>
 
-          </CategoriesList>
+            </CategoriesList>
 
-        </CategoriesContainer>
+          </CategoriesContainer>
 
-        <ProductsContainer>
+          <ProductsContainer>
 
-          <ProductsHeader>
-            <ProductsTitle>Produtos disponíveis</ProductsTitle>
-          </ProductsHeader>
+            <ProductsHeader>
+              <ProductsTitle>Produtos disponíveis</ProductsTitle>
+            </ProductsHeader>
 
-          <ProductsList>
+            <ProductsList>
 
-            <ProductItem>
-              <ProductItemImage source={imgLavitan} />
-              <ProductItemTitle>Lavitan C.D.Z.S.E. Mais Imunidade</ProductItemTitle>
-              <ProductItemShortTitle>Lavitan</ProductItemShortTitle>
-              <ProductDescription>30 Comprimidos Revestidos</ProductDescription>
+              <ProductItem>
+                <ProductItemImage source={imgLavitan} />
+                <ProductItemTitle>Lavitan C.D.Z.S.E. Mais Imunidade</ProductItemTitle>
+                <ProductItemShortTitle>Lavitan</ProductItemShortTitle>
+                <ProductDescription>30 Comprimidos Revestidos</ProductDescription>
 
-              <ProductTextPoints>Troque por</ProductTextPoints>
-              <ProductPoints>{90} pontos</ProductPoints>
-            </ProductItem>
+                <ProductTextPoints>Troque por</ProductTextPoints>
+                <ProductPoints>{90} pontos</ProductPoints>
+              </ProductItem>
 
-            <ProductItem>
-              <ProductItemImage source={imgHypera} />
-              <ProductItemTitle>Addera D3 2.000UI</ProductItemTitle>
-              <ProductItemShortTitle>Hyper</ProductItemShortTitle>
-              <ProductDescription>30 Cápsulas 47.5g</ProductDescription>
+              <ProductItem>
+                <ProductItemImage source={imgHypera} />
+                <ProductItemTitle>Addera D3 2.000UI</ProductItemTitle>
+                <ProductItemShortTitle>Hyper</ProductItemShortTitle>
+                <ProductDescription>30 Cápsulas 47.5g</ProductDescription>
 
-              <ProductTextPoints>Troque por</ProductTextPoints>
-              <ProductPoints>{90} pontos</ProductPoints>
-            </ProductItem>
+                <ProductTextPoints>Troque por</ProductTextPoints>
+                <ProductPoints>{90} pontos</ProductPoints>
+              </ProductItem>
 
-          </ProductsList>
+            </ProductsList>
 
 
-        </ProductsContainer>
+          </ProductsContainer>
+        </ScrollView>
 
       </Content>
     </Container>
