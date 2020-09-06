@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Home from '../pages/Home';
-import Points from '../pages/Points';
+import PointsRoutes from './PointsRoutes';
 
 import SvgHouse from '../assets/icons/House.svg';
 import SvgDiscountTag from '../assets/icons/Discount-Tag.svg';
@@ -75,7 +75,7 @@ const Routes = () => (
 
       <Screen
         name="Points"
-        component={Points}
+        component={PointsRoutes}
         options={{
           tabBarLabel: 'Pontos',
           tabBarIcon: ({ focused }) => (

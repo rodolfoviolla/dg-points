@@ -33,6 +33,5 @@ export const HeaderTitle = styled.Text`
   font-size: 28px;
   line-height: 32px;
   color: #fff;
-  text-align: center;
-  margin-left: 13px;
+  margin-right: 82px;
 `;

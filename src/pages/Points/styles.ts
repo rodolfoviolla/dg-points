@@ -1,8 +1,13 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { RectButton } from 'react-native-gesture-handler';
 
 interface SvgBackgroundProps {
   color: string;
+}
+
+interface CardStatusFillProps {
+  color: string;
+  width: string;
 }
 
 export const Container = styled.View`
@@ -12,7 +17,6 @@ export const Container = styled.View`
 
 export const MainCard = styled.View`
   width: 380px;
-  height: 232px;
   background-color: #ffffff;
   /* margin-top: -55px; */
   padding: 24px 16px;
@@ -23,7 +27,7 @@ export const MainCard = styled.View`
 export const MainCardPoints = styled.View`
   flex-direction: row;
   align-items: center;
-  margin: 0 0 22px;
+  margin: 0 0 24px;
 `;
 
 export const MainCardInfo = styled.View`
@@ -158,10 +162,19 @@ export const CardContentText = styled.Text`
   margin-top: 8px;
 `;
 
-export const CardStatus = styled.View`
+export const CardStatusBackground = styled.View`
   background: #DBDCE5;
   border-radius: 50px;
   height: 4px;
   width: 231px;
   margin-top: 2px;
+`;
+
+export const CardStatusFill = styled.View<CardStatusFillProps>`
+  ${({ color, width }) => css`
+    background: ${color};
+    width: ${width};
+  `}
+  border-radius: 50px;
+  height: 100%;
 `;

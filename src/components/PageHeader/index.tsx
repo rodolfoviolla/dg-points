@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { View } from 'react-native';
 
 import { 
@@ -11,13 +11,13 @@ import {
 } from './styles';
 
 import imgLogo from '../../assets/images/logo2.png';
-import SvgPill from '../../assets/icons/Pill.svg';
 
 interface PageHeaderProps {
   title: string;
+  svgTitle?: ReactNode;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title, children }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ title, svgTitle, children }) => {
   return (
     <Container>
       <LogoBar>
@@ -26,7 +26,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ title, children }) => {
 
       <TitleBar>
         <TitleBarContent>
-          <SvgPill fill="#fff" />
+          {svgTitle}
           <HeaderTitle>{title}</HeaderTitle>
         </TitleBarContent>
       </TitleBar>
