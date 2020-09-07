@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import PageHeader from '../../components/PageHeader';
 import Input from '../../components/Input';
@@ -38,7 +39,13 @@ import {
   ProductPoints,
 } from './styles';
 
-const Products = () => {
+const SearchProducts = () => {
+  const { navigate } = useNavigation();
+
+  const handlePressProductItem = useCallback(() => {
+    navigate('ChangePointsRoutes', { screen: 'Product' });
+  }, []);
+
   return (
     <Container>
       <PageHeader title="Troque seus pontos por produtos">
@@ -97,7 +104,7 @@ const Products = () => {
 
             <ProductsList>
 
-              <ProductItem>
+              <ProductItem onPress={handlePressProductItem}>
                 <ProductItemImage source={imgLavitan} />
                 <ProductItemTitle>Lavitan C.D.Z.S.E. Mais Imunidade</ProductItemTitle>
                 <ProductItemShortTitle>Lavitan</ProductItemShortTitle>
@@ -107,7 +114,7 @@ const Products = () => {
                 <ProductPoints>{90} pontos</ProductPoints>
               </ProductItem>
 
-              <ProductItem>
+              <ProductItem onPress={handlePressProductItem}>
                 <ProductItemImage source={imgHypera} />
                 <ProductItemTitle>Addera D3 2.000UI</ProductItemTitle>
                 <ProductItemShortTitle>Hyper</ProductItemShortTitle>
@@ -128,4 +135,4 @@ const Products = () => {
   );
 }
 
-export default Products;
+export default SearchProducts;

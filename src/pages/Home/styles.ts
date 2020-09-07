@@ -64,7 +64,7 @@ export const CardMainFrame = styled.Text`
   border-radius: 2px;
   padding: 4px 8px 2px;
   text-align: center;
-  width: 62px;
+  width: 64px;
 
   font-family: 'GT-Walsheim-Pro-Bold';
   font-size: 10px;

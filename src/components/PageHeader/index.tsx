@@ -17,7 +17,11 @@ interface PageHeaderProps {
   svgTitle?: ReactNode;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ title, svgTitle, children }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ 
+  title,
+  svgTitle,
+  children, 
+}) => {
   return (
     <Container>
       <LogoBar>

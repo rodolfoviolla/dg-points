@@ -42,7 +42,7 @@ const Points = () => {
   const { navigate } = useNavigation();
 
   const handlePressButton = useCallback(() => {
-    navigate('Products');
+    navigate('SearchProducts');
   }, []);
 
   return (

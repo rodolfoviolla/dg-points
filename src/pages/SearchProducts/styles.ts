@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.View`
   flex: 1;
@@ -111,7 +112,7 @@ export const ProductsList = styled.ScrollView.attrs({
   showsHorizontalScrollIndicator: false,
 })``;
 
-export const ProductItem = styled.View`
+export const ProductItem = styled(RectButton)`
   align-items: center;
   padding: 16px;
   width: 167px;
