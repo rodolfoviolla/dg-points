@@ -138,11 +138,10 @@ const Product = () => {
         <Button onPress={handleOnPressButton}>Trocar pontos</Button>
       </Footer>
 
-      {isModalVisible && (
-        <Modal>
-          <Button onPress={() => setIsModalVisible(false)} style={{ width: '100%' }} >Fechar</Button>
-        </Modal>
-      )}
+      <Modal
+        visible={isModalVisible}
+        close={() => setIsModalVisible(false)}
+      />
     </Container>
   );
 }
