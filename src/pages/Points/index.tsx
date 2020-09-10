@@ -37,6 +37,7 @@ import {
   CardStatusBackground,
   CardStatusFill,
 } from './styles';
+import Button from '../../components/Button';
 
 const Points = () => {
   const { navigate } = useNavigation();
@@ -78,11 +79,9 @@ const Points = () => {
         </MainCardPoints>
         
         <MainCardFooter>
-          <MainCardButton>
-            <MainCardButtonText onPress={handlePressButton}>
-              Usar meus pontos
-            </MainCardButtonText>
-          </MainCardButton>
+          <Button style={{ width: '100%' }} onPress={handlePressButton}>
+            {456 > 0 ? 'Usar meus pontos' : 'Comprar produtos'}
+          </Button>
           
           <MainCardFooterText>Como funciona?</MainCardFooterText>
         </MainCardFooter>

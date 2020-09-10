@@ -36,6 +36,7 @@ import {
   FooterButtonText,
   Modal,
 } from './styles';
+import Button from '../../components/Button';
 
 const Product = () => {
   const { goBack } = useNavigation();
@@ -134,10 +135,8 @@ const Product = () => {
             {90} pontos
           </FooterDetailsPoints>
         </FooterDetails>
-
-        <FooterButton onPress={handleOnPressButton}>
-          <FooterButtonText>Trocar pontos</FooterButtonText>
-        </FooterButton>
+        
+        <Button onPress={handleOnPressButton}>Trocar pontos</Button>
       </Footer>
 
       <Modal

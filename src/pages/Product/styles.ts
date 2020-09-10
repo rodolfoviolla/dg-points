@@ -153,19 +153,6 @@ export const FooterDetailsPoints = styled.Text`
   color: #FF475A;
 `;
 
-export const FooterButton = styled(RectButton)`
-  background: #FF475A;
-  border-radius: 4px;
-  padding: 16px;
-`;
-
-export const FooterButtonText = styled.Text`
-  font-family: 'GT-Walsheim-Pro-Bold';
-  font-size: 16px;
-  line-height: 16px;
-  color: #FFFFFF;
-`;
-
 export const Modal = styled.Modal`
   height: 542px;
 `;

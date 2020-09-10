@@ -87,22 +87,3 @@ export const CardMainText = styled.Text`
   font-size: 14px;
   line-height: 22px;
 `;
-
-export const CardMainButton = styled(RectButton)`
-  background: #FF475A;
-  border-radius: 4px;
-  height: 48px;
-
-  align-items: center;
-  justify-content: center;
-
-  margin: 8px 0 0;
-  padding: 4px 0 2px;
-`;
-
-export const CardMainButtonText = styled.Text`
-  font-family: 'GT-Walsheim-Pro-Bold';
-  color: #FFFFFF;
-  font-size: 16px;
-  line-height: 16px;
-`;

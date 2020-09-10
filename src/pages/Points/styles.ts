@@ -68,22 +68,6 @@ export const MainCardFooter = styled.View`
   justify-content: center;
 `;
 
-export const MainCardButton = styled(RectButton)`
-  padding: 16px;
-  width: 295px;
-  height: 48px;
-  background: #FF475A;
-  border-radius: 4px;
-`;
-
-export const MainCardButtonText = styled.Text`
-  font-family: 'GT-Walsheim-Pro-Bold';
-  font-size: 16px;
-  line-height: 16px;
-  text-align: center;
-  color: #FFFFFF;
-`;
-
 export const MainCardFooterText = styled.Text`
   margin: 16px 0 0;
   font-family: 'GT-Walsheim-Pro-Regular';
