@@ -141,7 +141,9 @@ const Product = () => {
       <Modal
         visible={isModalVisible}
         close={() => setIsModalVisible(false)}
-      />
+      >
+        <BuyConfirm />
+      </Modal>
     </Container>
   );
 }

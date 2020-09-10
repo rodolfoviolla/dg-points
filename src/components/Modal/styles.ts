@@ -23,3 +23,20 @@ export const ModalContainer = styled(Animated.View)`
   align-items: center;
   justify-content: center;
 `;
+
+export const Content = styled.View`
+  flex: 1;
+  width: 100%;
+`;
+
+export const CloseBar = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 45px;
+  margin: 15px;
+`;
+
+export const ChildrenContent = styled.View`
+  flex: 1;
+`;

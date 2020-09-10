@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Animated, Dimensions } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import Button from '../Button';
+import SvgClose from '../../assets/icons/Close.svg'
 
-import { Container, ModalContainer } from './styles'
-
-const { height } = Dimensions.get('window');
+import { Container, ModalContainer, Content, CloseBar, ChildrenContent } from './styles';
 
 interface ModalProps {
   visible: boolean;
@@ -13,6 +12,8 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ children, visible, close }) => {
+  const { height } = Dimensions.get('window');
+  
   const [state, setState] = useState({
     opacity: new Animated.Value(0),
     container: new Animated.Value(height),
@@ -67,8 +68,16 @@ const Modal: React.FC<ModalProps> = ({ children, visible, close }) => {
           translateY: state.modal,
         }]
       }}>
-        {children}
-        <Button onPress={close} style={{ width: '100%' }} >Fechar</Button>
+        <Content>
+          <CloseBar>
+            <TouchableOpacity onPress={close}>
+              <SvgClose fill="#6D7188" />
+            </TouchableOpacity>
+          </CloseBar>
+          <ChildrenContent>
+            {children}
+          </ChildrenContent>
+        </Content>
       </ModalContainer>
     </Container>
   );
