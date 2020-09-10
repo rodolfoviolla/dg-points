@@ -1,6 +1,8 @@
-import React from 'react';
-import { TouchableOpacity } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { TouchableOpacity, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import BuyConfirm from '../BuyConfirm';
 
 import SvgArrowLeft from '../../assets/icons/Arrow-Left.svg'
 import SvgBag from '../../assets/icons/Bag.svg'
@@ -32,10 +34,16 @@ import {
   FooterDetailsPoints,
   FooterButton,
   FooterButtonText,
+  Modal,
 } from './styles';
 
 const Product = () => {
   const { goBack } = useNavigation();
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleOnPressButton = useCallback(() => {
+    setIsModalVisible(true);
+  }, []);
 
   return (
     <Container>
@@ -127,10 +135,24 @@ const Product = () => {
           </FooterDetailsPoints>
         </FooterDetails>
 
-        <FooterButton>
+        <FooterButton onPress={handleOnPressButton}>
           <FooterButtonText>Trocar pontos</FooterButtonText>
         </FooterButton>
       </Footer>
+
+      <Modal
+        animated={true}
+        animationType="slide"
+        visible={isModalVisible}
+      >
+        <BuyConfirm>
+          <TouchableOpacity 
+            onPress={() => setIsModalVisible(false)}
+          >
+            <Text>Fechar Modal</Text>
+          </TouchableOpacity>
+        </BuyConfirm>
+      </Modal>
     </Container>
   );
 }

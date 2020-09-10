@@ -165,3 +165,7 @@ export const FooterButtonText = styled.Text`
   line-height: 16px;
   color: #FFFFFF;
 `;
+
+export const Modal = styled.Modal`
+  height: 542px;
+`;
