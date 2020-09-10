@@ -152,7 +152,3 @@ export const FooterDetailsPoints = styled.Text`
   line-height: 22px;
   color: #FF475A;
 `;
-
-export const Modal = styled.Modal`
-  height: 542px;
-`;

@@ -1,8 +1,11 @@
 import React, { useCallback, useState } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import BuyConfirm from '../BuyConfirm';
+
+import Button from '../../components/Button';
+import Modal from '../../components/Modal';
 
 import SvgArrowLeft from '../../assets/icons/Arrow-Left.svg'
 import SvgBag from '../../assets/icons/Bag.svg'
@@ -32,11 +35,7 @@ import {
   FooterDetails,
   FooterDetailsText,
   FooterDetailsPoints,
-  FooterButton,
-  FooterButtonText,
-  Modal,
 } from './styles';
-import Button from '../../components/Button';
 
 const Product = () => {
   const { goBack } = useNavigation();
@@ -139,19 +138,11 @@ const Product = () => {
         <Button onPress={handleOnPressButton}>Trocar pontos</Button>
       </Footer>
 
-      <Modal
-        animated={true}
-        animationType="slide"
-        visible={isModalVisible}
-      >
-        <BuyConfirm>
-          <TouchableOpacity 
-            onPress={() => setIsModalVisible(false)}
-          >
-            <Text>Fechar Modal</Text>
-          </TouchableOpacity>
-        </BuyConfirm>
-      </Modal>
+      {isModalVisible && (
+        <Modal>
+          <Button onPress={() => setIsModalVisible(false)} style={{ width: '100%' }} >Fechar</Button>
+        </Modal>
+      )}
     </Container>
   );
 }
