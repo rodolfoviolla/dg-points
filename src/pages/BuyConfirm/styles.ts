@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   flex: 1;
+  background-color: #ffffff;
 `;
 
 export const MainSection = styled.View`
@@ -104,4 +105,11 @@ export const DeliveryDisclaimer = styled.Text`
 export const DeliverySpan = styled.Text`
   text-decoration-line: underline;
   color: #A30010;
+`;
+
+export const ButtonContainer = styled.View`
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 24px;
+  width: 100%;
 `;

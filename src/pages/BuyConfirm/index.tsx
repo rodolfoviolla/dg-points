@@ -1,4 +1,5 @@
-import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React, { useCallback } from 'react';
 
 import Button from '../../components/Button';
 
@@ -20,9 +21,16 @@ import {
   DeliveryTotalValue,
   DeliveryDisclaimer,
   DeliverySpan,
+  ButtonContainer,
 } from './styles';
 
 const BuyConfirm: React.FC = () => {
+  const { navigate } = useNavigation();
+
+  const handleOnPressButton = useCallback(() => {
+    navigate('BuyConfirmed');
+  }, []);
+
   return (
     <Container>
       <MainSection>
@@ -63,7 +71,9 @@ const BuyConfirm: React.FC = () => {
         </DeliveryDisclaimer>
       </DeliverySection>
 
-      <Button>Confirmar Compra</Button>
+      <ButtonContainer>
+        <Button onPress={handleOnPressButton}>Confirmar Compra</Button>
+      </ButtonContainer>
     </Container>
   );
 }

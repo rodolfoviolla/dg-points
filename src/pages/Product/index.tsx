@@ -2,10 +2,10 @@ import React, { useCallback, useState } from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import BuyConfirm from '../BuyConfirm';
-
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
+
+import BuyRoutes from '../../routes/BuyRoutes';
 
 import SvgArrowLeft from '../../assets/icons/Arrow-Left.svg'
 import SvgBag from '../../assets/icons/Bag.svg'
@@ -142,7 +142,7 @@ const Product = () => {
         visible={isModalVisible}
         close={() => setIsModalVisible(false)}
       >
-        <BuyConfirm />
+        <BuyRoutes />
       </Modal>
     </Container>
   );
