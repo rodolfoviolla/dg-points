@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import { ScrollView } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
@@ -22,8 +23,6 @@ import {
   RegularTitle,
   MainCardInfoText,
   MainCardFooter,
-  MainCardButton,
-  MainCardButtonText,
   MainCardFooterText,
   Content,
   ContentHeader,
@@ -44,6 +43,10 @@ const Points = () => {
 
   const handlePressButton = useCallback(() => {
     navigate('SearchProducts');
+  }, []);
+
+  const handlePressHow = useCallback(() => {
+    navigate('Onboarding');
   }, []);
 
   return (
@@ -83,7 +86,9 @@ const Points = () => {
             {456 > 0 ? 'Usar meus pontos' : 'Comprar produtos'}
           </Button>
           
-          <MainCardFooterText>Como funciona?</MainCardFooterText>
+          <TouchableOpacity onPress={handlePressHow}>
+            <MainCardFooterText>Como funciona?</MainCardFooterText>
+          </TouchableOpacity>
         </MainCardFooter>
       </MainCard>
 
