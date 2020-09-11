@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Animated, Dimensions } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -14,7 +14,7 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ children, visible, close }) => {
   const { height } = Dimensions.get('window');
   
-  const [state, setState] = useState({
+  const [state,] = useState({
     opacity: new Animated.Value(0),
     container: new Animated.Value(height),
     modal: new Animated.Value(height),
