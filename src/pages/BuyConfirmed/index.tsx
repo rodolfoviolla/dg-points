@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';
 
@@ -8,6 +9,7 @@ import {
   Container,
   Title,
   TrackDelivery,
+  MainTextContainer,
   MainText,
   SecondText,
   DisclaimerContainer,
@@ -17,19 +19,35 @@ import {
 } from './styles';
 
 const BuyConfirmed = () => {
+  const { navigate } = useNavigation();
+
+  const handleOnPressButton = useCallback(() => {
+    navigate('InviteFriends');
+  }, []);
+
   return (
     <Container>
       <Title>Entrega à caminho!</Title>
       <SvgDelivery height={188} width={260} />
       <TrackDelivery>Acompanhar entrega</TrackDelivery>
-      <MainText>Seus pontos foram trocados por produtos.</MainText>
-      <SecondText>Já, já você receberá a entrega na sua casa.</SecondText>
+      
+      <MainTextContainer>
+        <MainText>Seus pontos foram trocados por produtos.</MainText>
+        <SecondText>Já, já você receberá a entrega na sua casa.</SecondText>
+      </MainTextContainer>
+
       <DisclaimerContainer>
         <DisclaimerText>E lembre-se:{' '}</DisclaimerText>
         <DisclaimerSpan>continue juntando pontos :)</DisclaimerSpan>
       </DisclaimerContainer>
+      
       <ButtonContainer>
-        <Button style={{ width: '100%' }}>Ver meus pontos</Button>
+        <Button 
+          onPress={handleOnPressButton}
+          style={{ width: '100%' }}
+        >
+          Ver meus pontos
+        </Button>
       </ButtonContainer>
     </Container>
   );
