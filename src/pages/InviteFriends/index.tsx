@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';
 
@@ -15,6 +16,12 @@ import {
 } from './styles';
 
 const InviteFriends = () => {
+  const { navigate } = useNavigation();
+
+  const handleOnPressButton = useCallback(() => {
+    navigate('SendInvitation');
+  }, []);
+
   return (
     <Container>
       <Title>Convidar amigos</Title>
@@ -33,7 +40,12 @@ const InviteFriends = () => {
       </DisclaimerText>
 
       <ButtonContainer>
-        <Button style={{ width: '100%' }}>Convidar amigos</Button>
+        <Button
+          onPress={handleOnPressButton}
+          style={{ width: '100%' }}
+        >
+          Convidar amigos
+        </Button>
       </ButtonContainer>
     </Container>
   );
