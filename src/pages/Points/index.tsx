@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import PageHeader from '../../components/PageHeader';
 import CircularProgress from '../../components/CircularProgress';
+import Button from '../../components/Button';
 
 import SvgPill from '../../assets/icons/Pill.svg';
 import SvgTarget from '../../assets/icons/Target.svg';
@@ -36,7 +37,6 @@ import {
   CardStatusBackground,
   CardStatusFill,
 } from './styles';
-import Button from '../../components/Button';
 
 const Points = () => {
   const { navigate } = useNavigation();
