@@ -1,7 +1,9 @@
-import React, { useCallback, useState } from 'react';
-import { Dimensions, ScrollView } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { ScrollView, ScrollViewProps } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import Button from '../../components/Button';
 
 import imgBrand from '../../assets/images/Brand.png';
 import imgRemedy from '../../assets/images/Remedy.png'
@@ -34,33 +36,73 @@ import {
   FooterBottom,
   FooterBottomText,
 } from './styles';
-import Button from '../../components/Button';
+
+interface ScrollToProps {
+  x: number;
+  y: number;
+  animated: boolean;
+}
+
+interface ScrollProps extends ScrollViewProps {
+  scrollTo: (params: ScrollToProps) => void;
+}
 
 const Onboarding = () => {
-  const isDisabled = true;
+  const scrollViewRef = useRef<ScrollProps>(null);
   const { goBack } = useNavigation();
 
-  const [sliderState, setSliderState] = useState({ currentPage: 0 });
-  const { width } = Dimensions.get('window');
+  const [interval, setInterval] = useState<number | undefined>(1);
+  const [intervals, setIntervals] = useState(1);
+  const [width, setWidth] = useState(0);
 
-  const setSliderPage = useCallback((event: any) => {
-    const { currentPage } = sliderState;
-    const { x } = event.nativeEvent.contentOffset;
-    const indexOfNextScreen = Math.floor(x / width);
+  const init = (width: number) => {
+    setWidth(width);
+    setIntervals(4);
+  }
 
-    console.log({
-      currentPage, x, indexOfNextScreen,
-    });
-    
-    if (indexOfNextScreen !== currentPage) {
-      setSliderState({
-        ...sliderState,
-        currentPage: indexOfNextScreen,
-      });
+  const getInterval = (offset: any) => {
+    for (let i = 1; i <= intervals; i++) {
+      const roundedOffset = Math.round(offset * 100) / 100;
+      const roundedCompare = Math.round((width / intervals) * i * 100) / 100;
+
+      if (roundedOffset < roundedCompare) {
+        return i;
+      }
+      if (i == intervals) {
+        return i;
+      }
     }
-  }, []);
+  }
 
-  const { currentPage: pageIndex } = sliderState;
+  let paginatorItems =[];
+  for (let i = 1; i <= intervals; i++) {
+    paginatorItems.push(
+      <PaginatorIndicator
+        key={i}
+        selected={interval === i}
+      />
+    );
+  }
+
+  const handlePressPrevious = () => {
+    const screenWidth = width / intervals;
+    const numericInterval = !!interval ? interval : 1;
+    const previousInterval = numericInterval - 2;
+
+    const x = previousInterval * screenWidth;
+
+    scrollViewRef.current?.scrollTo({ x, y: 1, animated: true });
+  }
+
+  const handlePressNext = () => {
+    const screenWidth = width / intervals;
+    const numericInterval = !!interval ? interval : 1;
+    const nextInterval = numericInterval;
+
+    const x = nextInterval * screenWidth;
+
+    scrollViewRef.current?.scrollTo({ x, y: 1, animated: true });
+  }
 
   return (
     <Container>
@@ -73,14 +115,18 @@ const Onboarding = () => {
       </Header>
 
       <ScrollView
-        style={{ flex: 1 }}
+        ref={scrollViewRef}
         horizontal={true}
-        scrollEventThrottle={10}
-        pagingEnabled={true}
+        contentContainerStyle={{ width: `${100 * intervals}%` }}
         showsHorizontalScrollIndicator={false}
-        onScroll={(event) => {
-          setSliderPage(event);
+        onContentSizeChange={(w, h) => init(w)}
+        onScroll={data => {
+          setWidth(data.nativeEvent.contentSize.width);
+          setInterval(getInterval(data.nativeEvent.contentOffset.x));
         }}
+        scrollEventThrottle={200}
+        pagingEnabled
+        decelerationRate="fast"
       >
 
       <ScrollScreenContainer>
@@ -135,31 +181,35 @@ const Onboarding = () => {
             Seus pontos tem validade de 1 ano a partir do momento que você os ganha. Então é só não marcar bobeira, juntar pontos e trocar por{' '}
             <DescriptionSpanRed>produtos gratuitamente</DescriptionSpanRed>.
           </Description>
-          <Button style={{ marginTop: 24, width: '75%' }}>Começar agora</Button>
         </Content>
+        <Button style={{ marginTop: 24, width: '75%' }}>Começar agora</Button>
       </ScrollScreenContainer>
 
       </ScrollView>
 
       <Footer>
         <FooterTop>
-          <SvgBackground disabled={isDisabled} >
-            <SvgChevronLeft fill={isDisabled ? '#494B5B' : '#FF475A'} />
-          </SvgBackground>
+          <TouchableOpacity disabled={interval === 1} onPress={handlePressPrevious}>
+            <SvgBackground disabled={interval === 1} >
+              <SvgChevronLeft fill={interval === 1 ? '#494B5B' : '#FF475A'} />
+            </SvgBackground>
+          </TouchableOpacity>
           
           <Paginator>
-            {Array.from(Array(4).keys()).map((key, index) => (
-              <PaginatorIndicator key={index} selected={pageIndex === index} />
-            ))}
+            {paginatorItems}
           </Paginator>
 
-          <SvgBackground disabled={!isDisabled} >
-            <SvgChevronRight fill={!isDisabled ? '#494B5B' : '#FF475A'} />
-          </SvgBackground>
+          <TouchableOpacity disabled={interval === intervals} onPress={handlePressNext}>
+            <SvgBackground disabled={interval === intervals} >
+              <SvgChevronRight fill={interval === intervals ? '#494B5B' : '#FF475A'} />
+            </SvgBackground>
+          </TouchableOpacity>
         </FooterTop>
 
         <FooterBottom>
-          <FooterBottomText>Pular</FooterBottomText>
+          <TouchableOpacity onPress={() => goBack()}>
+            <FooterBottomText>Pular</FooterBottomText>
+          </TouchableOpacity>
         </FooterBottom>
       </Footer>
 

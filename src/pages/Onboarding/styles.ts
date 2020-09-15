@@ -9,11 +9,6 @@ interface PaginatorProps {
   selected?: boolean;
 }
 
-export const ScrollScreenContainer = styled.View`
-  height: 100%;
-  width: ${Dimensions.get('window').width}px;
-`;
-
 export const Container = styled.View`
   flex: 1;
 `;
@@ -30,10 +25,16 @@ export const Logo = styled.Image`
   height: 32px;
 `;
 
+export const ScrollScreenContainer = styled.View`
+  height: 100%;
+  width: ${Dimensions.get('window').width}px;
+  align-items: center;
+`;
+
 export const Content = styled.View`
   flex: 1;
   align-items: center;
-  padding-top: 62px;
+  padding-top: 40px;
 `;
 
 export const Image = styled.Image`
