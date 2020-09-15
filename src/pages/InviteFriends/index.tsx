@@ -3,11 +3,12 @@ import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';
 
-import SvgFriends from '../../assets/illustrations/Friends.svg'
+import imgFriends from '../../assets/images/Friends.png'
 
 import { 
   Container,
   Title,
+  Image,
   MainTextContainer,
   MainText,
   MainSpanText,
@@ -25,7 +26,7 @@ const InviteFriends = () => {
   return (
     <Container>
       <Title>Convidar amigos</Title>
-      <SvgFriends height={188} width={260} />
+      <Image source={imgFriends} />
 
       <MainTextContainer>
         <MainText>

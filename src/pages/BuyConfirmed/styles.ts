@@ -14,6 +14,11 @@ export const Title = styled.Text`
   /* margin-bottom: 24px; */
 `;
 
+export const Image = styled.Image`
+  height: 188px;
+  width: 260px;
+`;
+
 export const TrackDelivery = styled.Text`
   font-family: 'GT-Walsheim-Pro-Medium';
   font-size: 16px;

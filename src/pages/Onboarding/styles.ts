@@ -1,5 +1,5 @@
-import { css } from 'styled-components';
-import styled from 'styled-components/native';
+import { Dimensions } from 'react-native';
+import styled, { css } from 'styled-components/native';
 
 interface SvgBackgroundProps {
   disabled?: boolean;
@@ -8,6 +8,11 @@ interface SvgBackgroundProps {
 interface PaginatorProps {
   selected?: boolean;
 }
+
+export const ScrollScreenContainer = styled.View`
+  height: 100%;
+  width: ${Dimensions.get('window').width}px;
+`;
 
 export const Container = styled.View`
   flex: 1;
@@ -25,16 +30,15 @@ export const Logo = styled.Image`
   height: 32px;
 `;
 
-export const ScrollView = styled.ScrollView.attrs({
-  contentContainerStyle: {
-    flex: 1,
-  },
-})``;
-
 export const Content = styled.View`
   flex: 1;
   align-items: center;
   padding-top: 62px;
+`;
+
+export const Image = styled.Image`
+  width: 284px;
+  height: 212px;
 `;
 
 export const Title = styled.Text`
@@ -64,15 +68,18 @@ export const DescriptionSpanRed = styled.Text`
 `;
 
 export const Footnote = styled.View`
+  width: 100%;
   align-items: center;
 `;
 
 export const FootnoteText = styled.Text`
+  width: 220px;
   font-family: 'GT-Walsheim-Pro-Regular';
   font-size: 12px;
   line-height: 16px;
   color: #6D7188;
   opacity: 0.64;
+  text-align: center;
 `;
 
 export const Footer = styled.View`

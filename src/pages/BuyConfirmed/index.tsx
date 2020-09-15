@@ -3,11 +3,12 @@ import { useNavigation } from '@react-navigation/native';
 
 import Button from '../../components/Button';
 
-import SvgDelivery from '../../assets/illustrations/Delivery.svg'
+import imgDelivery from '../../assets/images/Delivery.png'
 
 import { 
   Container,
   Title,
+  Image,
   TrackDelivery,
   MainTextContainer,
   MainText,
@@ -28,7 +29,7 @@ const BuyConfirmed = () => {
   return (
     <Container>
       <Title>Entrega à caminho!</Title>
-      <SvgDelivery height={188} width={260} />
+      <Image source={imgDelivery} />
       <TrackDelivery>Acompanhar entrega</TrackDelivery>
       
       <MainTextContainer>

@@ -13,6 +13,11 @@ export const Title = styled.Text`
   color: #333847;
 `;
 
+export const Image = styled.Image`
+  height: 188px;
+  width: 260px;
+`;
+
 export const MainTextContainer = styled.View`
   
 `;
