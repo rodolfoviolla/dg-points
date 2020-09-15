@@ -1,5 +1,5 @@
-import React from 'react';
-import { ScrollView } from 'react-native';
+import React, { useCallback, useState } from 'react';
+import { Dimensions, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -38,8 +38,29 @@ import Button from '../../components/Button';
 
 const Onboarding = () => {
   const isDisabled = true;
-
   const { goBack } = useNavigation();
+
+  const [sliderState, setSliderState] = useState({ currentPage: 0 });
+  const { width } = Dimensions.get('window');
+
+  const setSliderPage = useCallback((event: any) => {
+    const { currentPage } = sliderState;
+    const { x } = event.nativeEvent.contentOffset;
+    const indexOfNextScreen = Math.floor(x / width);
+
+    console.log({
+      currentPage, x, indexOfNextScreen,
+    });
+    
+    if (indexOfNextScreen !== currentPage) {
+      setSliderState({
+        ...sliderState,
+        currentPage: indexOfNextScreen,
+      });
+    }
+  }, []);
+
+  const { currentPage: pageIndex } = sliderState;
 
   return (
     <Container>
@@ -54,8 +75,12 @@ const Onboarding = () => {
       <ScrollView
         style={{ flex: 1 }}
         horizontal={true}
-        scrollEventThrottle={16}
+        scrollEventThrottle={10}
         pagingEnabled={true}
+        showsHorizontalScrollIndicator={false}
+        onScroll={(event) => {
+          setSliderPage(event);
+        }}
       >
 
       <ScrollScreenContainer>
@@ -123,10 +148,9 @@ const Onboarding = () => {
           </SvgBackground>
           
           <Paginator>
-            <PaginatorIndicator selected={isDisabled} />
-            <PaginatorIndicator selected={!isDisabled} />
-            <PaginatorIndicator selected={!isDisabled} />
-            <PaginatorIndicator selected={!isDisabled} />
+            {Array.from(Array(4).keys()).map((key, index) => (
+              <PaginatorIndicator key={index} selected={pageIndex === index} />
+            ))}
           </Paginator>
 
           <SvgBackground disabled={!isDisabled} >
