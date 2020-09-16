@@ -22,7 +22,7 @@
   </a>
 </p>
 <p>
-  Front-end construído à partir de protótipo de nova funcionalidade para o aplicativo da Drogasil. Este projeto é uma parceria com o designer, desenvolvedor e amigo Felipe Marcon, que desenvolveu todo o design.
+  Front-end construído à partir de protótipo de nova funcionalidade para o aplicativo da Drogasil. Este projeto é uma parceria com o designer, desenvolvedor e amigo Felipe Marcon, que recebeu o prêmio de terceiro lugar no uiBoost com o design desta aplicação.
 </p>
 
 ### Design por
