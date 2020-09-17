@@ -32,14 +32,15 @@
     <br>
     <sub><b>Felipe Marcon</b></sub>
     <br>
+    
+  <p>
     <a href="https://www.behance.net/felipeemarcon">
-      Behance
+      <img alt="Behance" src="https://img.shields.io/badge/-Behance-%231769ff?style=flat&logo=behance">
     </a>
-    <br>
     <a href="https://dribbble.com/felipee_marcon">
-      Dribble
+      <img alt="Dribble" src="https://img.shields.io/badge/-Dribble-%23fff?style=flat&logo=dribbble">
     </a>
-  </a>
+  </p>
 </p>
 
 <p align="center">
