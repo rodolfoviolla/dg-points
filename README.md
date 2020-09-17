@@ -43,9 +43,9 @@
 </p>
 
 <p align="center">
-  <img width="300" height="532" src="./assets/AppDemo01.gif" alt="Demo">&nbsp
-  <img width="300" height="532" src="./assets/AppDemo02.gif" alt="Demo">&nbsp
-  <img width="300" height="532" src="./assets/AppDemo03.gif" alt="Demo">
+  <img width="250" height="443" src="./assets/AppDemo01.gif" alt="Demo">&nbsp
+  <img width="250" height="443" src="./assets/AppDemo02.gif" alt="Demo">&nbsp
+  <img width="250" height="443" src="./assets/AppDemo03.gif" alt="Demo">
 </p>
 
 ### Pré-requisitos
